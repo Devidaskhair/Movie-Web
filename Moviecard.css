@@ -1,0 +1,160 @@
+.movie-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  transition: transform 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-poster {
+  position: relative;
+  aspect-ratio: 2/3;
+  width: 100%;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.8)
+  );
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.favourite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.favourite-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.favourite-btn.active {
+  color: #ff4757;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.trailer-btn,
+.watch-btn {
+  flex: 1;
+  padding: 0.6rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.trailer-btn:hover:not(:disabled),
+.watch-btn:hover:not(:disabled) {
+  background-color: #34495e;
+}
+
+.trailer-btn:disabled,
+.watch-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.movie-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-info h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.movie-info p {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.user-rating {
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    font-size: 0.9rem;
+  }
+
+  .movie-info {
+    padding: 0.75rem;
+  }
+
+  .favourite-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .action-buttons {
+    gap: 0.25rem;
+  }
+
+  .trailer-btn,
+  .watch-btn {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
